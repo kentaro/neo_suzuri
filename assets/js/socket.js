@@ -65,4 +65,10 @@ channel.push("request_image", { error: true })
 channel.push("request_image", { error: false, hobbies: ["fishing", "eating"] })
   .receive("ok", (resp) => console.log("request_image ok:", resp))
 
+channel.on("update_objects", (payload) => {
+  console.log("`update_objects` requested !!!", payload)
+  channel.push("request_image", { error: false, hobbies: ["reading", "walking"] })
+    .receive("ok", (resp) => console.log("update_objects:", resp.request_image))
+})
+
 export default socket
