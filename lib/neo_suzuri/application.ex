@@ -12,9 +12,9 @@ defmodule NeoSuzuri.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: NeoSuzuri.PubSub},
       # Start the Endpoint (http/https)
-      NeoSuzuriWeb.Endpoint
+      NeoSuzuriWeb.Endpoint,
       # Start a worker by calling: NeoSuzuri.Worker.start_link(arg)
-      # {NeoSuzuri.Worker, arg}
+      NeoSuzuri.Worker
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
