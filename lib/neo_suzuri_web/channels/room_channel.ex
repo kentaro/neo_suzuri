@@ -14,6 +14,7 @@ defmodule NeoSuzuriWeb.RoomChannel do
 
   def handle_in("request_image" = topic, payload, socket) do
     Logger.info("topic: #{topic}, payload: #{inspect(payload)}")
-    {:reply, {:ok, %{request_image: "pong"}}, socket}
+    image_url =  GenServer.call(NeoSuzuri.Worker, :request_image)
+    {:reply, {:ok, %{image_url: image_url}}, socket}
   end
 end
